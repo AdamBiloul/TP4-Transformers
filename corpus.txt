@@ -1,0 +1,67 @@
+Le carnet de Sami
+
+Chaque matin, Sami ouvre la fenêtre de sa chambre et observe la rue. Les premiers bus traversent le quartier, les commerçants installent leurs marchandises et les voisins se saluent. La ville se réveille progressivement. Avant de partir à l'université, Sami prépare son sac et vérifie son emploi du temps.
+
+Sami étudie l'informatique. Il aime comprendre comment fonctionnent les programmes et pourquoi certaines solutions sont plus efficaces que d'autres. Lorsqu'un exercice lui paraît difficile, il commence par un exemple simple. Il écrit quelques lignes, observe le résultat et corrige ses erreurs avant de continuer.
+
+Un lundi, son professeur présente les séries temporelles. Une série temporelle est une suite de mesures organisées dans le temps. La température d'une pièce, la puissance électrique d'une maison et le nombre de voyageurs dans une gare sont des exemples de données temporelles. Leur ordre apporte une information essentielle.
+
+Pour commencer, la classe construit une sinusoïde. Cette courbe monte, descend et recommence selon un rythme régulier. Le professeur demande aux étudiants de prendre dix valeurs consécutives pour prédire la suivante. Sami dessine une fenêtre qui avance sur la courbe. Chaque fenêtre devient un exemple pour le modèle.
+
+Le premier réseau étudié est un réseau récurrent. Il lit les valeurs les unes après les autres et met à jour un état caché. Cet état conserve une représentation de ce qui a été observé. Les mêmes paramètres sont utilisés à chaque instant. Après la dernière valeur, une couche linéaire produit la prédiction.
+
+Pendant l'entraînement, le modèle compare ses prédictions avec les réponses attendues. Une fonction de perte mesure les écarts. La rétropropagation calcule les gradients, puis un optimiseur ajuste les paramètres. Cette opération est répétée plusieurs fois. Une erreur faible sur l'entraînement ne garantit cependant pas une bonne prédiction sur de nouvelles données.
+
+Sami sépare donc ses exemples en plusieurs ensembles. L'entraînement sert à apprendre les paramètres. La validation aide à choisir les réglages et la meilleure époque. Le test permet une évaluation finale. Pour une série temporelle, il conserve l'ordre chronologique afin de respecter la succession des observations.
+
+Le lendemain, la classe découvre le LSTM. Ce réseau possède un état caché et une mémoire interne. Des portes contrôlent les informations à conserver, à ajouter et à exposer. Cette organisation facilite l'apprentissage de certaines dépendances longues. Elle demande aussi davantage de paramètres qu'un réseau récurrent simple.
+
+Sami compare les résultats des deux architectures. Sur sa petite sinusoïde, le LSTM obtient une erreur plus faible. Il note pourtant qu'une seule expérience ne permet pas de désigner un meilleur modèle pour tous les problèmes. Les données, la taille du réseau et les conditions d'entraînement influencent les résultats.
+
+Le mercredi, le professeur explique les Transformers. Contrairement aux réseaux récurrents, ils utilisent l'attention pour mettre directement en relation les positions d'une séquence. Chaque position peut combiner les informations pertinentes des autres positions autorisées. Plusieurs têtes d'attention permettent de calculer différentes combinaisons.
+
+L'ordre doit être représenté explicitement. Le modèle ajoute donc une information de position aux représentations des entrées. Sans cette information, l'attention seule ne décrit pas directement la place des éléments. Les représentations passent ensuite dans des blocs qui associent attention, réseau de neurones, connexions résiduelles et normalisation.
+
+Après les exemples artificiels, les étudiants travaillent sur des mesures électriques. Ils disposent de relevés effectués chaque minute dans une maison. Leur objectif est de calculer une puissance moyenne par heure, puis de prédire l'heure suivante à partir des vingt-quatre dernières heures.
+
+Les données réelles contiennent des valeurs manquantes. Sami examine les dates, les unités et le nombre de mesures disponibles. Il évite de relier artificiellement deux périodes séparées par une interruption. Il calcule les paramètres de normalisation uniquement sur l'entraînement pour ne pas utiliser d'informations provenant du futur.
+
+Pour évaluer son modèle, il calcule l'erreur absolue moyenne et la racine de l'erreur quadratique moyenne. La première mesure décrit l'écart absolu moyen. La seconde pénalise davantage les erreurs importantes. Il revient à l'échelle originale afin d'exprimer les résultats en kilowatts.
+
+Le professeur demande également deux méthodes de référence. La persistance prédit la dernière valeur observée. La référence journalière reprend la valeur mesurée vingt-quatre heures auparavant. Ces méthodes simples permettent de vérifier si le réseau apporte une amélioration utile.
+
+Sur le graphique, Sami remarque que son Transformer suit plusieurs variations mais atténue certains pics. Il comprend qu'une bonne moyenne ne signifie pas que chaque prédiction est exacte. Il examine les périodes difficiles et cherche des explications possibles dans les habitudes de consommation.
+
+Le jeudi, le cours porte sur le langage. Pour un ordinateur, une phrase doit être transformée en nombres. Un tokenizer découpe le texte en unités appelées tokens. Selon la méthode choisie, un token peut correspondre à un caractère, à un mot ou à une partie de mot.
+
+Dans leur exercice, les étudiants choisissent une tokenisation par caractères. Ils recensent les caractères du corpus et attribuent un identifiant à chacun. Une table transforme les caractères en identifiants. Une autre table permet de retrouver le texte à partir des identifiants.
+
+Le mini-GPT apprend à prédire le caractère suivant. Pour une entrée contenant plusieurs caractères, les cibles correspondent au même texte décalé d'une position. Chaque position fournit ainsi un exemple de prédiction. La fonction de perte compare les scores du vocabulaire avec les caractères attendus.
+
+Un masque causal interdit à une position de consulter les caractères futurs. Sans cette contrainte, le réseau pourrait voir la réponse pendant l'entraînement. Sami vérifie cette propriété en modifiant un caractère futur et en comparant les prédictions des positions précédentes.
+
+Pour générer du texte, le modèle reçoit une amorce. Il calcule les probabilités du prochain caractère, en choisit un, puis l'ajoute à la séquence. Il recommence jusqu'à atteindre la longueur demandée. Lorsque le contexte devient trop long, leur petit modèle conserve seulement les dernières positions disponibles.
+
+La température modifie la distribution utilisée pour le tirage. Une température basse favorise les caractères déjà les plus probables. Une température élevée donne davantage de place aux autres possibilités. Elle peut augmenter la diversité, mais aussi produire plus d'erreurs et de suites incohérentes.
+
+Sami teste trois températures avec la même amorce. Il compare les répétitions, la formation des mots et la ponctuation. Il sait que son petit corpus ne suffit pas pour obtenir les capacités d'un grand modèle préentraîné. L'objectif est de comprendre le mécanisme de génération.
+
+Le vendredi, les étudiants découvrent la prédiction de mots masqués. Un modèle de type BERT peut utiliser le contexte situé avant et après le mot caché. Dans la phrase « le chat dort sur le canapé », ils remplacent un mot et demandent au modèle de retrouver sa place dans la phrase.
+
+Le corpus est découpé en phrases. Certaines positions sont sélectionnées pour l'apprentissage. La plupart des tokens sélectionnés sont remplacés par un masque, quelques-uns par un token aléatoire et les autres restent inchangés. La perte est calculée uniquement aux positions sélectionnées.
+
+Les phrases n'ont pas toutes la même longueur. Des tokens de remplissage complètent les séquences, mais un masque de padding empêche l'attention de les utiliser comme contexte. Sami vérifie que changer les valeurs de remplissage ne modifie pas les prédictions utiles lorsque le masque reste identique.
+
+Après les cours, Sami retrouve ses amis dans un café près de la bibliothèque. Lina prépare une présentation, Youssef révise les bases de données et Nora travaille sur un projet de robotique. Ils échangent leurs idées et expliquent leurs difficultés. Parfois, formuler un problème à voix haute suffit pour trouver une piste.
+
+Le samedi, Sami se promène dans un parc. Un chat gris dort sous un banc, tandis que deux enfants jouent près des arbres. Le vent déplace doucement les feuilles. Il range son téléphone et profite du calme. Après plusieurs heures devant un écran, marcher lui permet de retrouver de l'énergie.
+
+En rentrant, il prépare un repas et écoute de la musique. Il pense aux différences entre les machines et les personnes. Un programme peut produire un résultat convaincant tout en commettant des erreurs. Comprendre ses limites fait partie du travail d'un ingénieur.
+
+Le dimanche, Sami organise son projet. Il donne des noms clairs aux variables, ajoute des commentaires utiles et conserve les résultats de ses expériences. Il évite de recopier des fichiers inutiles. Son objectif est de permettre à une autre personne de comprendre et de reproduire son travail.
+
+Avant de publier son dépôt, il vérifie le notebook depuis le début. Les cellules doivent fonctionner dans l'ordre avec les dépendances indiquées. Les données volumineuses sont accompagnées d'instructions pour les obtenir. Les fichiers temporaires et les environnements virtuels restent en dehors du dépôt.
+
+Dans son document de présentation, Sami décrit le problème, les méthodes utilisées et les résultats observés. Il distingue ce qu'il a mesuré de ce qu'il propose pour la suite. Il mentionne les limites du corpus, les erreurs de prédiction et les améliorations possibles.
+
+La semaine suivante, il relit ses premières notes. Les notions qui semblaient abstraites sont devenues plus concrètes grâce aux expériences. Il ne connaît pas encore toutes les réponses, mais il sait construire un exemple, vérifier une hypothèse et expliquer ce qu'il observe. Pour lui, apprendre consiste à avancer progressivement avec méthode et curiosité.
